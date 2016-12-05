@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>true</primitive>  <annotatorImplementationName>com.uimalab.lexical_density.LexicalDensityAE</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>POS Density Feature: Lexical Words</name>
+    <description>Calculates lexical word density of the text.
+Lexical words include the Penn Treebank tags JJ, JJR, JJS, RB, RBR, RBS, WRB, VB, VBD, VBG, VBN, VBP, VBZ, NN, NNS, NNP, NNPS.
+
+Formula: 
+	lexicalWordDensity = numLexicalWords / numTokens
+
+AAE dependency:
+	SentenceAnnotator.xml
+	TokenAnnotator.xml
+	POSAnnotator.xml
+	NTokenFeature.xml</description>
+    <version>1.0</version>
+    <vendor>Xiaobin Chen</vendor>
+    <configurationParameters/>
+    <configurationParameterSettings/>
+    <typeSystemDescription>
+      <imports>
+        <import location="TypeSystem.xml"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs>
+          <type allAnnotatorFeatures="true">com.uimalab.type.POS</type>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">com.uimalab.type.LC</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>

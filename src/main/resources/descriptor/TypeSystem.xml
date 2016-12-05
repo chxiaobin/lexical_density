@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>Type system for lexical density analysis</name>
+    <description>This is the type system that defines the types for analyzing lexical density of texts.</description>
+    <version>1.0</version>
+    <vendor/>
+  <types>
+    <typeDescription>
+      <name>com.uimalab.type.Sentence</name>
+      <description>a natural language sentence</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>com.uimalab.type.Token</name>
+      <description>A natural language token, or word.</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+    </typeDescription>
+    <typeDescription>
+      <name>com.uimalab.type.POS</name>
+      <description>part of speech</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>tag</name>
+          <description>the POS tag</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  <typeDescription>
+      <name>com.uimalab.type.LD</name>
+      <description>lexical density</description>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
+      <features>
+        <featureDescription>
+          <name>value</name>
+          <description>lexical density value</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
