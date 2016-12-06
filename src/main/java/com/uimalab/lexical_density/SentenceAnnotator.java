@@ -40,12 +40,9 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext aContext) throws ResourceInitializationException {
 		super.initialize(aContext);
 
-		String modelFilePath = null;
-
 		// gets the model resource, which is declared in the annotator xml
 			try {
-				modelFilePath = getContext().getResourceFilePath(RESOURCE_KEY);
-				modelIn = getContext().getResourceAsStream(RESOURCE_KEY);
+				modelIn = aContext.getResourceAsStream(RESOURCE_KEY);
 				sentenceDetector = new SentenceDetectorME(new SentenceModel(modelIn));
 			} catch (ResourceAccessException e) {
 				// TODO Auto-generated catch block

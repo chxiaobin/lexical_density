@@ -14,7 +14,7 @@ import org.apache.uima.jcas.cas.AnnotationBase;
 
 
 /** lexical density
- * Updated by JCasGen Tue Nov 29 23:42:05 CET 2016
+ * Updated by JCasGen Mon Dec 05 14:43:27 CET 2016
  * XML source: /home/xiaobin/work/project/pccl-16ws/slide_xiaobin/uima/lab/code/src/main/resources/descriptor/TypeSystem.xml
  * @generated */
 public class LD extends Annotation {

@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Tue Nov 29 22:48:55 CET 2016 */
+/* First created by JCasGen Mon Dec 05 14:25:28 CET 2016 */
 package com.uimalab.type;
 
 import org.apache.uima.jcas.JCas; 
@@ -10,16 +10,19 @@ import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.uima.jcas.tcas.Annotation;
 
 
-/** part of speech
+import org.apache.uima.jcas.cas.AnnotationBase;
+
+
+/** 
  * Updated by JCasGen Mon Dec 05 14:43:27 CET 2016
  * XML source: /home/xiaobin/work/project/pccl-16ws/slide_xiaobin/uima/lab/code/src/main/resources/descriptor/TypeSystem.xml
  * @generated */
-public class POS extends Annotation {
+public class DocumentMetaData extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(POS.class);
+  public final static int typeIndexID = JCasRegistry.register(DocumentMetaData.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +36,14 @@ public class POS extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected POS() {/* intentionally empty block */}
+  protected DocumentMetaData() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public POS(int addr, TOP_Type type) {
+  public DocumentMetaData(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +51,7 @@ public class POS extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public POS(JCas jcas) {
+  public DocumentMetaData(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -58,7 +61,7 @@ public class POS extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public POS(JCas jcas, int begin, int end) {
+  public DocumentMetaData(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -77,25 +80,25 @@ public class POS extends Annotation {
  
     
   //*--------------*
-  //* Feature: tag
+  //* Feature: fileName
 
-  /** getter for tag - gets the POS tag
+  /** getter for fileName - gets 
    * @generated
    * @return value of the feature 
    */
-  public String getTag() {
-    if (POS_Type.featOkTst && ((POS_Type)jcasType).casFeat_tag == null)
-      jcasType.jcas.throwFeatMissing("tag", "com.uimalab.type.POS");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((POS_Type)jcasType).casFeatCode_tag);}
+  public String getFileName() {
+    if (DocumentMetaData_Type.featOkTst && ((DocumentMetaData_Type)jcasType).casFeat_fileName == null)
+      jcasType.jcas.throwFeatMissing("fileName", "com.uimalab.type.DocumentMetaData");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((DocumentMetaData_Type)jcasType).casFeatCode_fileName);}
     
-  /** setter for tag - sets the POS tag 
+  /** setter for fileName - sets  
    * @generated
    * @param v value to set into the feature 
    */
-  public void setTag(String v) {
-    if (POS_Type.featOkTst && ((POS_Type)jcasType).casFeat_tag == null)
-      jcasType.jcas.throwFeatMissing("tag", "com.uimalab.type.POS");
-    jcasType.ll_cas.ll_setStringValue(addr, ((POS_Type)jcasType).casFeatCode_tag, v);}    
+  public void setFileName(String v) {
+    if (DocumentMetaData_Type.featOkTst && ((DocumentMetaData_Type)jcasType).casFeat_fileName == null)
+      jcasType.jcas.throwFeatMissing("fileName", "com.uimalab.type.DocumentMetaData");
+    jcasType.ll_cas.ll_setStringValue(addr, ((DocumentMetaData_Type)jcasType).casFeatCode_fileName, v);}    
   }
 
     

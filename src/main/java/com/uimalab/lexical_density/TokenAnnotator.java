@@ -17,6 +17,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import com.uimalab.type.Sentence;
 import com.uimalab.type.Token;
 
+import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.InvalidFormatException;
@@ -29,7 +30,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 
 	private InputStream modelIn;
 	private TokenizerModel model;
-	private opennlp.tools.tokenize.Tokenizer tokenizer;
+	private Tokenizer tokenizer;
 
 	public static String RESOURCE_KEY = "TokenModel";
 
@@ -37,11 +38,8 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext aContext) throws ResourceInitializationException {
 		super.initialize(aContext);
 
-		String modelFilePath = null;
-
 			try {
-				modelFilePath = getContext().getResourceFilePath(RESOURCE_KEY);
-				modelIn = getContext().getResourceAsStream(RESOURCE_KEY);
+				modelIn = aContext.getResourceAsStream(RESOURCE_KEY);
 				model = new TokenizerModel(modelIn);
 				tokenizer = new TokenizerME(model);
 			} catch (ResourceAccessException e) {

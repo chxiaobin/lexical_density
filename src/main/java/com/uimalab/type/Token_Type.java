@@ -9,7 +9,7 @@ import org.apache.uima.cas.Type;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** A natural language token, or word.
- * Updated by JCasGen Tue Nov 29 23:42:05 CET 2016
+ * Updated by JCasGen Mon Dec 05 14:43:27 CET 2016
  * @generated */
 public class Token_Type extends Annotation_Type {
   /** @generated */

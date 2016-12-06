@@ -32,7 +32,7 @@ AAE dependency:
           <type allAnnotatorFeatures="true">com.uimalab.type.POS</type>
         </inputs>
         <outputs>
-          <type allAnnotatorFeatures="true">com.uimalab.type.LC</type>
+          <type allAnnotatorFeatures="true">com.uimalab.type.LD</type>
         </outputs>
         <languagesSupported/>
       </capability>

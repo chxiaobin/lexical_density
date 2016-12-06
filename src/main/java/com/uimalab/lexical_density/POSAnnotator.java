@@ -38,12 +38,9 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext aContext) throws ResourceInitializationException {
 		super.initialize(aContext);
 
-		String POSModelFilePath = null;
-
 		//init pos tagger
 			try {
-				POSModelFilePath = getContext().getResourceFilePath(POS_RESOURCE_KEY);
-				posModelIn = getContext().getResourceAsStream(POS_RESOURCE_KEY);
+				posModelIn = aContext.getResourceAsStream(POS_RESOURCE_KEY);
 				POSmodel = new POSModel(posModelIn);
 				posTagger = new POSTaggerME(POSmodel);
 			} catch (ResourceAccessException e) {
@@ -86,6 +83,8 @@ public class POSAnnotator extends JCasAnnotator_ImplBase {
 			}
 			
 			//convert the list of tokens in the sentence to a String array
+			//alternatively, use:
+			//	String[] tokenStrings = sentTokens.toArray(new String[0]);
 			int size = sentTokens.size();
 			String[] tokenStrings = new String[size];
 			for(int i = 0; i < size; i++) {

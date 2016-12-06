@@ -20,12 +20,6 @@ import com.uimalab.type.POS;
 
 public class LexicalDensityAE extends JCasAnnotator_ImplBase {
 
-	//the analysis engine's id from the database
-	//this value needs to be set when initiating the analysis engine
-	public static final String PARAM_AEID = "aeID";
-	public static final String PARAM_POS_TYPE= "POSType";
-	private int aeID;
-
 	//list of pos tags to be counted
 	List<String> posList = new ArrayList<>();
 
