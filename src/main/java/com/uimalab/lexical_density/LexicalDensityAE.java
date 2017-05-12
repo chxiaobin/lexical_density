@@ -29,6 +29,7 @@ public class LexicalDensityAE extends JCasAnnotator_ImplBase {
 			throws ResourceInitializationException {
 		super.initialize(aContext);
 		
+		//add the POS tags for lexical tokens to a list
 		String[] lexical = {
 				"JJ", "JJR", "JJS", //adj
 				"RB", "RBR", "RBS", "WRB", //adv
@@ -48,29 +49,35 @@ public class LexicalDensityAE extends JCasAnnotator_ImplBase {
 		// get annotation indexes and iterator
 		Iterator posIter = aJCas.getAnnotationIndex(POS.type).iterator();
 
-		//count number of occurrences 
-		int nPOSTypes = 0;
-		int nTokens = 0;
+		//for counting number of occurrences 
+		int nLexicalTokens = 0; //number of lexical tokens
+		int nTokens = 0; //number of tokens
+		
+		//interate through all POS annotations
 		while(posIter.hasNext()) {
 			nTokens++;
+			
+			//check the POS tag for each token, see if it exists 
+			//in the lexical POS tags list
 			POS pos = (POS) posIter.next();
 			String tag = pos.getTag();
 			if(posList.contains(tag)) {
-				nPOSTypes++;
+				nLexicalTokens++; //if the token is a lexical token, increase the count
 			}
 		}
 
+		//calculate the lexical density value
 		double density = 0;
 		if(nTokens != 0 ) {
-			density = (double) nPOSTypes / nTokens;
+			density = (double) nLexicalTokens / nTokens;
 		}
 		
-		//output the feature type
+		//store the lexical density value in to the CAS
 		LD annotation = new LD(aJCas);
 
 		annotation.setBegin(0);
 		annotation.setEnd(aJCas.getDocumentText().length() - 1);
-		//set feature value
+		//set LD value
 		annotation.setValue(density);
 		annotation.addToIndexes();
 

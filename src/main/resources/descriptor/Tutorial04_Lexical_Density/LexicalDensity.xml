@@ -21,7 +21,7 @@ AAE dependency:
     <configurationParameterSettings/>
     <typeSystemDescription>
       <imports>
-        <import location="TypeSystem.xml"/>
+        <import name="descriptor.TypeSystem"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>

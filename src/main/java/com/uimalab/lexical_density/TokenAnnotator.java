@@ -68,15 +68,17 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		// get annotation indexes and iterator
 		Iterator sentIter = aJCas.getAnnotationIndex(Sentence.type).iterator();
 
+		//iterate through all sentence annotations and for each sentence, detect its tokens
 		while (sentIter.hasNext()) {
 			Sentence sent = (Sentence) sentIter.next();
 
-			// Detect token spans
+			// detect token spans
 			Span[] spans = tokenizer.tokenizePos(sent.getCoveredText());
 
+			// store the token annotation into the CAS
 			for (Span span : spans) {
 				Token annotation = new Token(aJCas);
-				annotation.setBegin(span.getStart() + sent.getBegin()); // the offset is absolute, so adds the sentence begin position.
+				annotation.setBegin(span.getStart() + sent.getBegin()); // the offset is absolute, so add the sentence begin position.
 				annotation.setEnd(span.getEnd() + sent.getBegin());
 				annotation.addToIndexes();
 			}
@@ -89,6 +91,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 
 		if (modelIn != null) {
 			try {
+				// close the token model
 				modelIn.close();
 			}
 			catch (IOException e) {

@@ -51,8 +51,8 @@
 
         <typeSystemDescription>
           <imports>
-            <import location="TypeSystem.xml"/>
-          </imports>
+        <import name="descriptor.TypeSystem"/>
+      </imports>
         </typeSystemDescription>
 
         <typePriorities/>

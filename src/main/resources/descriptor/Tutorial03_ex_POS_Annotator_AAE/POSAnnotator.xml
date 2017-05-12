@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>com.uimalab.lexical_density.TokenAnnotator</annotatorImplementationName>
+  <primitive>true</primitive>  <annotatorImplementationName>com.uimalab.lexical_density.POSAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>Token Annotator</name>
-    <description>Annotates tokens in natural language.
+    <name>POS Annotator</name>
+    <description>Annotates part-of-speech of tokens in natural language.
 
 AAE dependency: 
-	SentenceAnnotator.xml</description>
+	SentenceAnnotator.xml
+	TokenAnnotator.xml</description>
     <version>1.0</version>
     <vendor>Xiaobin Chen</vendor>
     <configurationParameters/>
     <configurationParameterSettings/>
     <typeSystemDescription>
       <imports>
-        <import location="TypeSystem.xml"/>
-        </imports>
+        <import name="descriptor.TypeSystem"/>
+      </imports>
     </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs>
+          <type allAnnotatorFeatures="true">com.uimalab.type.Token</type>
           <type allAnnotatorFeatures="true">com.uimalab.type.Sentence</type>
         </inputs>
         <outputs>
-          <type allAnnotatorFeatures="true">com.uimalab.type.Token</type>
+          <type allAnnotatorFeatures="true">com.uimalab.type.POS</type>
         </outputs>
         <languagesSupported/>
       </capability>
@@ -38,25 +40,25 @@ AAE dependency:
   </analysisEngineMetaData>
   <externalResourceDependencies>
     <externalResourceDependency>
-      <key>TokenModel</key>
-      <description>A token model to tokenizing text.</description>
+      <key>POSModel</key>
+      <description>A POS model to pos-tagging text.</description>
       <optional>false</optional>
     </externalResourceDependency>
-  </externalResourceDependencies>
+    </externalResourceDependencies>
   <resourceManagerConfiguration>
     <externalResources>
       <externalResource>
-        <name>enTokenModel</name>
-        <description>English token model.</description>
+        <name>enPOSModel</name>
+        <description>English POS model.</description>
         <fileResourceSpecifier>
-          <fileUrl>file:model/en_token.bin</fileUrl>
+          <fileUrl>file:model/en_pos.bin</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
     </externalResources>
     <externalResourceBindings>
       <externalResourceBinding>
-        <key>TokenModel</key>
-        <resourceName>enTokenModel</resourceName>
+        <key>POSModel</key>
+        <resourceName>enPOSModel</resourceName>
       </externalResourceBinding>
     </externalResourceBindings>
   </resourceManagerConfiguration>

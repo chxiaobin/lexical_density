@@ -72,6 +72,8 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
 		// Detect sentence spans
 		Span[] spans = sentenceDetector.sentPosDetect(docText);
 
+		// Store the detected sentence spans in the CAS,
+		// Don't forget to add the annotations to the CAS index
 		for (Span span : spans) {
 			Sentence annotation = new Sentence(aJCas);
 			annotation.setBegin(span.getStart());

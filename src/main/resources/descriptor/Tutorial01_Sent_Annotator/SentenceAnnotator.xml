@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>com.uimalab.lexical_density.POSAnnotator</annotatorImplementationName>
+  <primitive>true</primitive>  <annotatorImplementationName>com.uimalab.lexical_density.SentenceAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>POS Annotator</name>
-    <description>Annotates part-of-speech of tokens in natural language.
+    <name>Sentence Annotator</name>
+    <description>Annotates sentences.
 
-AAE dependency: 
-	SentenceAnnotator.xml
-	TokenAnnotator.xml</description>
+AAE dependency:</description>
     <version>1.0</version>
-    <vendor>Xiaobin Chen</vendor>
+    <vendor>xiaobin</vendor>
     <configurationParameters/>
     <configurationParameterSettings/>
     <typeSystemDescription>
       <imports>
-        <import location="TypeSystem.xml"/>
-        </imports>
+        <import name="descriptor.TypeSystem"/>
+      </imports>
     </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs>
-          <type allAnnotatorFeatures="true">com.uimalab.type.Token</type>
-          <type allAnnotatorFeatures="true">com.uimalab.type.Sentence</type>
-        </inputs>
+        <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">com.uimalab.type.POS</type>
+          <type allAnnotatorFeatures="true">com.uimalab.type.Sentence</type>
         </outputs>
         <languagesSupported/>
       </capability>
@@ -40,25 +35,26 @@ AAE dependency:
   </analysisEngineMetaData>
   <externalResourceDependencies>
     <externalResourceDependency>
-      <key>POSModel</key>
-      <description>A POS model to pos-tagging text.</description>
+      <key>SentenceSegmenterModel</key>
+      <description>The model used to segment sentences.
+The resource doesn't need an interface because all the annotator needs is an input stream to the model resource, which is provided by the UIMA framework by default.</description>
       <optional>false</optional>
     </externalResourceDependency>
-    </externalResourceDependencies>
+  </externalResourceDependencies>
   <resourceManagerConfiguration>
     <externalResources>
       <externalResource>
-        <name>enPOSModel</name>
-        <description>English POS model.</description>
+        <name>EnglishSentenceSegmenterModelFile</name>
+        <description>The sentence segmenter model for English.</description>
         <fileResourceSpecifier>
-          <fileUrl>file:model/en_pos.bin</fileUrl>
+          <fileUrl>file:model/en_sent.bin</fileUrl>
         </fileResourceSpecifier>
       </externalResource>
     </externalResources>
     <externalResourceBindings>
       <externalResourceBinding>
-        <key>POSModel</key>
-        <resourceName>enPOSModel</resourceName>
+        <key>SentenceSegmenterModel</key>
+        <resourceName>EnglishSentenceSegmenterModelFile</resourceName>
       </externalResourceBinding>
     </externalResourceBindings>
   </resourceManagerConfiguration>

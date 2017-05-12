@@ -21,10 +21,10 @@
    -->
 <casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>com.uimalab.lexical_density.cpe.CSVOutputCasConsumer</implementationName>
+  <implementationName>com.uimalab.lexical_density.cpe.GeneralLDCasConsumer</implementationName>
   <processingResourceMetaData>
-    <name>CSV output CAS Consumer</name>
-    <description>Writes lexical density analysis results to a csv file.</description>
+    <name>General Lexical Density Value CAS Consumer</name>
+    <description>Writes lexical density analysis results to a csv file. Only outputs the general LD of each document analyzed.</description>
     <version>1.0</version>
     <vendor>xiaobin</vendor>
     <configurationParameters>
@@ -46,7 +46,7 @@
     </configurationParameterSettings>
     <typeSystemDescription>
       <imports>
-        <import location="TypeSystem.xml"/>
+        <import name="descriptor.TypeSystem"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>

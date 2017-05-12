@@ -3,15 +3,18 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="TokenAnnotatorAAE">
-      <import name="descriptor.TokenAnnotatorAAE"/>
+    <delegateAnalysisEngine key="SentenceAnnotator">
+      <import name="descriptor.Tutorial01_Sent_Annotator.SentenceAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenAnnotator">
+      <import name="descriptor.Tutorial02_Token_AAE.TokenAnnotator"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="POSAnnotator">
-      <import name="descriptor.POSAnnotator"/>
+      <import name="descriptor.Tutorial03_ex_POS_Annotator_AAE.POSAnnotator"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>POSAnnotatorAAE</name>
+    <name>POS</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -19,7 +22,8 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>TokenAnnotatorAAE</node>
+        <node>SentenceAnnotator</node>
+        <node>TokenAnnotator</node>
         <node>POSAnnotator</node>
       </fixedFlow>
     </flowConstraints>

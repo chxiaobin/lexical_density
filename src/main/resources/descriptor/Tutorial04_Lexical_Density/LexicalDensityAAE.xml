@@ -3,15 +3,15 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="SentenceAnnotator">
-      <import name="descriptor.SentenceAnnotator"/>
+    <delegateAnalysisEngine key="POSAnnotatorAAE">
+      <import name="descriptor.Tutorial03_ex_POS_Annotator_AAE.POSAnnotatorAAE"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="TokenAnnotator">
-      <import name="descriptor.TokenAnnotator"/>
+    <delegateAnalysisEngine key="LexicalDensity">
+      <import name="descriptor.Tutorial04_Lexical_Density.LexicalDensity"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>TokenAnnotatorAAE</name>
+    <name>LexicalDensityAAE</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -19,8 +19,8 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>SentenceAnnotator</node>
-        <node>TokenAnnotator</node>
+        <node>POSAnnotatorAAE</node>
+        <node>LexicalDensity</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
@@ -28,7 +28,8 @@
       <capability>
         <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">com.uimalab.type.Token</type>
+          <type allAnnotatorFeatures="true">com.uimalab.type.LD</type>
+        <type allAnnotatorFeatures="true">com.uimalab.type.POS</type>
         </outputs>
         <languagesSupported/>
       </capability>

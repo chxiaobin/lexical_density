@@ -50,7 +50,7 @@ import com.uimalab.type.LD;
  * <li><code>OutputDirectory</code> - path to directory into which output files will be written</li>
  * </ul>
  */
-public class CSVOutputCasConsumer extends CasConsumer_ImplBase {
+public class GeneralLDCasConsumer extends CasConsumer_ImplBase {
 	/**
 	 * Name of configuration parameter that must be set to the path of a directory into which the
 	 * output files will be written.
@@ -58,7 +58,7 @@ public class CSVOutputCasConsumer extends CasConsumer_ImplBase {
 	public static final String PARAM_OUTPUTDIR = "OutputDirectory";
 
 	FileWriter fout;
-	private final String outputFileName = "result.csv";
+	private final String outputFileName = "general_LD.csv";
 
 	/**
 	 * Initializes the output file in the output directory.
