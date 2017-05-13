@@ -13,12 +13,26 @@ Formula:
 AAE dependency:
 	SentenceAnnotator.xml
 	TokenAnnotator.xml
-	POSAnnotator.xml
-	NTokenFeature.xml</description>
+	POSAnnotator.xml</description>
     <version>1.0</version>
     <vendor>Xiaobin Chen</vendor>
-    <configurationParameters/>
-    <configurationParameterSettings/>
+    <configurationParameters>
+      <configurationParameter>
+        <name>POSTypes</name>
+        <description>The POS to be counted for calculating density.</description>
+        <type>String</type>
+        <multiValued>true</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>POSTypes</name>
+        <value>
+          <array/>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
     <typeSystemDescription>
       <imports>
         <import name="descriptor.TypeSystem"/>

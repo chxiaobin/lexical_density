@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>com.uimalab.lexical_density.SentenceAnnotator</annotatorImplementationName>
+  <primitive>true</primitive>  <annotatorImplementationName/>
   <analysisEngineMetaData>
     <name>Sentence Annotator</name>
-    <description>Annotates sentences.
-
-AAE dependency:</description>
+    <description>Annotates sentences.</description>
     <version>1.0</version>
     <vendor>xiaobin</vendor>
     <configurationParameters/>
     <configurationParameterSettings/>
     <typeSystemDescription>
-      <imports>
-        <import name="descriptor.TypeSystem"/>
-      </imports>
-    </typeSystemDescription>
+      </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">com.uimalab.type.Sentence</type>
-        </outputs>
+          </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

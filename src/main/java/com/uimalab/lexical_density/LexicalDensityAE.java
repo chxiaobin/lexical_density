@@ -22,20 +22,15 @@ public class LexicalDensityAE extends JCasAnnotator_ImplBase {
 
 	//list of pos tags to be counted
 	List<String> posList = new ArrayList<>();
-
+	private static final String POSTYPES_PARAM_NAME = "POSTypes";
 
 	@Override
 	public void initialize(UimaContext aContext)
 			throws ResourceInitializationException {
 		super.initialize(aContext);
-		
-		//add the POS tags for lexical tokens to a list
-		String[] lexical = {
-				"JJ", "JJR", "JJS", //adj
-				"RB", "RBR", "RBS", "WRB", //adv
-				"VB", "VBD", "VBG", "VBN", "VBP", "VBZ", //verb
-				"NN", "NNS", "NNP", "NNPS" //noun
-		};
+
+		//get the pos type list and add them to a list
+		String[] lexical = (String[]) aContext.getConfigParameterValue(POSTYPES_PARAM_NAME);
 		Collections.addAll(posList, lexical);
 
 	}

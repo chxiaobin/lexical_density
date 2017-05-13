@@ -6,11 +6,6 @@
     <vendor/>
   <types>
     <typeDescription>
-      <name>com.uimalab.type.Sentence</name>
-      <description>a natural language sentence</description>
-      <supertypeName>uima.tcas.Annotation</supertypeName>
-    </typeDescription>
-    <typeDescription>
       <name>com.uimalab.type.Token</name>
       <description>A natural language token, or word.</description>
       <supertypeName>uima.tcas.Annotation</supertypeName>

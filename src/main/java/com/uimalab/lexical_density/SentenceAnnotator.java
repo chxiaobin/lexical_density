@@ -41,19 +41,19 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
 		super.initialize(aContext);
 
 		// gets the model resource, which is declared in the annotator xml
-			try {
-				modelIn = aContext.getResourceAsStream(RESOURCE_KEY);
-				sentenceDetector = new SentenceDetectorME(new SentenceModel(modelIn));
-			} catch (ResourceAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			modelIn = aContext.getResourceAsStream(RESOURCE_KEY);
+			sentenceDetector = new SentenceDetectorME(new SentenceModel(modelIn));
+		} catch (ResourceAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -75,7 +75,10 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
 		// Store the detected sentence spans in the CAS,
 		// Don't forget to add the annotations to the CAS index
 		for (Span span : spans) {
-			Sentence annotation = new Sentence(aJCas);
+			//the Sentence type is defined in the type system descriptor
+			// It is an annotation type, which has a `begin' and `end' attribute
+			// for storing the span positions of a sentence.
+			Sentence annotation = new Sentence(aJCas); 
 			annotation.setBegin(span.getStart());
 			annotation.setEnd(span.getEnd());
 			annotation.addToIndexes();
@@ -86,6 +89,7 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void destroy() {
+		//close the model file when done
 		if (modelIn != null) {
 			try {
 				modelIn.close();
